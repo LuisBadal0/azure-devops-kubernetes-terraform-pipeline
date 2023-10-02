@@ -25,7 +25,12 @@ stages:
               command: "buildAndPush"
               Dockerfile: "**/Dockerfile"
               tags: "$(tag)"
-          #Publish K8S FilesF
+          #Publish K8S Files
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(System.DefaultWorkingDirectory)'
+              Contents: '**/*.yaml'
+              TargetFolder: '$(Build.ArtifactStagingDirectory)'
           - task: PublishBuildArtifacts@1
             inputs:
               PathtoPublish: "$(Build.ArtifactStagingDirectory)"
