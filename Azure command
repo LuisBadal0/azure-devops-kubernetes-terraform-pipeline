@@ -1,0 +1,10 @@
+###Login
+#az login 
+
+###create service account
+#az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions{subscriptionID}"
+## AppId = ClientID
+## Password = ClientSecret
+
+###generate ssh key
+#ssh-keygen -m PEM -t rsa -b 4096
