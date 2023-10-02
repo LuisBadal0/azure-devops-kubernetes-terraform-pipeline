@@ -7,10 +7,18 @@
 ## Password = ClientSecret
 
 ###generate ssh key
-#ssh-keygen -m PEM -t rsa -b 4096
+# ssh-keygen -m PEM -t rsa -b 4096
+
 ###Connect to Cluster
 # az aks get-credentials --name k8stest_dev --resource-group kubernetes_dev
 
 ###See the service of the cluster connected
 # kubectl get service
+
+###get credentials
+# az aks get-credentials --name k8stest_dev --resource-group kubernetes_dev --admin
+
+###display details of config
+# cat ~/.kube/config
+
 
