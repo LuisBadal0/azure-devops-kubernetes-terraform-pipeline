@@ -1,15 +1,15 @@
 # aws --version
-# aws eks --region us-east-1 update-kubeconfig --name in28minutes-cluster
+# aws eks --region eu-west-2 update-kubeconfig --name badalo-cluster
 # Uses default VPC and Subnet. Create Your Own VPC and Private Subnets for Prod Usage.
-# terraform-backend-state-in28minutes-123
-# AKIA4AHVNOD7OOO6T4KI
+# terraform-backend-state-badalo
+# Access key ID & Secret access key to comunitate DevOps with AWS
 
 
 terraform {
   backend "s3" {
     bucket = "mybucket" # Will be overridden from build
     key    = "path/to/my/key" # Will be overridden from build
-    region = "us-east-1"
+    region = "eu-west-2"
   }
 }
 
@@ -28,12 +28,14 @@ provider "kubernetes" {
   version                = "~> 2.12"
 }
 
-module "in28minutes-cluster" {
+module "badalo-cluster" {
   source          = "terraform-aws-modules/eks/aws"
-  cluster_name    = "in28minutes-cluster"
-  cluster_version = "1.14"
-  subnets         = ["subnet-3f7b2563", "subnet-4a7d6a45"] #CHANGE
+  cluster_name    = "badalo-cluster"
+  cluster_version = "1.27"
+  subnets         = ["subnet-3f7b2563", "subnet-4a7d6a45"] #CHANGE for the subnets on "VPC Subnets"
   #subnets = data.aws_subnet_ids.subnets.ids
+
+  
   vpc_id          = aws_default_vpc.default.id
 
   #vpc_id         = "vpc-1234556abcdef"
@@ -78,5 +80,5 @@ resource "kubernetes_cluster_role_binding" "example" {
 
 # Needed to set the default region
 provider "aws" {
-  region  = "us-east-1"
+  region  = "eu-west-2"
 }
