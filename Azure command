@@ -21,4 +21,6 @@
 ###display details of config
 # cat ~/.kube/config
 
+### Add all terraform and aws tools to the DevOps Project via Visual Studio Marketplace
 
+### Create all necessary Service Connections for each AWS and Terraform on DevOps
