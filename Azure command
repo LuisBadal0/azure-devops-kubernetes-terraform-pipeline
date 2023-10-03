@@ -24,3 +24,14 @@
 ### Add all terraform and aws tools to the DevOps Project via Visual Studio Marketplace
 
 ### Create all necessary Service Connections for each AWS and Terraform on DevOps
+
+
+### Kubernetes service connetion to the kubernetes(url & secret) on DevOps
+# kubectl cluster-info
+###get secret name
+# kubectl get serviceaccounts default -o yaml
+###get secret token
+# kubelct get secret default-token hdkfg -o yaml
+
+###get cofiguration aws with the cluster
+# aws eks --region eu-west-2 update-kubeconfig --name badalo-cluster
